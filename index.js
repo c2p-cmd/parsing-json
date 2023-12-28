@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", fetchData);
 
 async function fetchData() {
-    const decoder = new TextDecoder();
+    const decoder = new TextDecoder("utf-8");
 
     let url = "https://shortstories-api.onrender.com/";
     const response = await fetch(url);
@@ -12,6 +12,6 @@ async function fetchData() {
 
     console.log(jsonData);
 
-    document.getElementById("response").innerHTML = "<h2>JSONData we got:\n</h2><br>" + textData + "\n<h2>After parsing\n</h2>" 
-    + jsonData["title"] + "\n" + jsonData["story"];
+    document.getElementById("response").innerHTML = "<h2>JSONData we got:\n</h2><br>" + textData + "\n<h2>After parsing\n</h2><h3>" 
+    + jsonData["title"] + "</h3><br>" + jsonData["story"];
 }
