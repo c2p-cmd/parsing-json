@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parsing JSON from Short Stories API</title>
+</head>
+<body>
+    <h1>Short Stories from the API</h1>
+
+    <p>Fetching stories from: <a href="https://shortstories-api.onrender.com/">https://shortstories-api.onrender.com/</a></p>
+
+    <div id="response"></div>
+
+    <pre><code class=language-javascript>
+        async function fetchData(url) {
+            const decoder = new TextDecoder();
+
+            const response = await fetch(url);
+            const data = await response.arrayBuffer();
+        
+            const textData = decoder.decode(data);
+            const jsonData = JSON.parse(textData);
+        
+            console.log(jsonData);
+        }
+    </code></pre>
+</body>
+<script src="index.js"></script>
+</html>
